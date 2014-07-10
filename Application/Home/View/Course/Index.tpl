@@ -86,7 +86,7 @@
                     <td style="text-align: center;" >{$vo['Course_name']}</td>
                     <td style="text-align: center;" >{$vo['Course_credit']}</td>
                     <td style="text-align: center;" >{$vo['Course_category']|getCategory}</td>
-                    <td style="text-align: center;" >{$vo['Course_intro']}</td>
+                    <td style="text-align: center;" >{$vo['Course_remark']}</td>
                 </tr>
             </volist>
 

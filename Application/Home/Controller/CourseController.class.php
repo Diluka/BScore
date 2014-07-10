@@ -24,4 +24,9 @@ class CourseController extends BaseController {
         parent::index($map);
     }
 
+    public function add() {
+        $this->assign("module", M("Module")->select());
+        $this->display();
+    }
+
 }
