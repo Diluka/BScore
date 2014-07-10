@@ -1,0 +1,8 @@
+.buildpath
+.project
+nbproject/
+ThinkPHP/
+Public/dwz/
+Public/xheditor/
+Application/Runtime/
+Application/*.7z
