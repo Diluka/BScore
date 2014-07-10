@@ -6,3 +6,4 @@ Public/dwz/
 Public/xheditor/
 Application/Runtime/
 Application/*.7z
+Application/Home/Conf/config.php
