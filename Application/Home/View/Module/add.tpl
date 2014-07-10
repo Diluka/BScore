@@ -15,8 +15,8 @@
                 <div class="unit">
                     <label>选择分类：</label>
                     <select name="Module_type" id="Module_type">
-                        <option value="1">必修模块</option>
-                        <option value="2">选修模块</option>
+                        <option value="1">{:getModuleType(1)}模块</option>
+                        <option value="2">{:getModuleType(2)}模块</option>
                     </select>
                 </div>
                 <div class="unit">
