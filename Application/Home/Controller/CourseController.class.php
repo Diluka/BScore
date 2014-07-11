@@ -29,4 +29,8 @@ class CourseController extends BaseController {
         $this->display();
     }
 
+    public function info($id) {
+        $this->display();
+    }
+
 }

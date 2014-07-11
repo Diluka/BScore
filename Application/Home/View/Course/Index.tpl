@@ -62,6 +62,7 @@
                 <li><a class="add" href="__URL__/add" target="dialog" mask="true" width="700" height="400"><span>新增</span></a></li>
                 <li><a class="delete" href="__URL__/foreverdelete/id/{sid_node}/navTabId/Course" target="ajaxTodo"  title="你确定要删除吗？" warn="请选择节点"><span>删除</span></a></li>
                 <li><a class="edit" href="__URL__/edit/id/{sid_node}" target="dialog" mask="true" warn="请选择节点" width="700" height="400"><span>修改</span></a></li>
+                <li><a class="icon" href="__URL__/info/id/{sid_node}" target="dialog" mask="true" warn="请选择节点" width="700" height="400"><span>详细</span></a></li>
                 <li><a href="__URL__/export" class="delete"><span>导出EXCEL</span></a></li>
             </ul>
         </div>
