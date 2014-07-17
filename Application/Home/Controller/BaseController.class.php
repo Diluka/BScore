@@ -19,6 +19,7 @@ class BaseController extends Controller {
         if (!empty($model)) {
             $this->_list($model, $map, $dwz_db_name);
         }
+        
         $this->display();
     }
 

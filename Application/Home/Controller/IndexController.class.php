@@ -21,9 +21,9 @@ class IndexController extends Controller {
                 $m1['child'] = $node->where(array("node_status" => 1, "node_pid" => $m1['id']))->order('node_sort asc')->select();
                 foreach ($m1['child'] as &$m2) {
                     $m2['child'] = $node->where(array("node_status" => 1, "node_pid" => $m2['id']))->order('node_sort asc')->select();
-                    foreach ($m2['child'] as &$m3) {
-                        $m3["has"] = M("Access")->where(array("Role_id" => 1, "node_id" => $m3['id']))->count();
-                    }
+//                     foreach ($m2['child'] as &$m3) {
+//                         $m3["has"] = M("Access")->where(array("Role_id" => 1, "node_id" => $m3['id']))->count();
+//                     }
                 }
             }
 //            for ($i = 0; $i < count($menu); $i++) {

@@ -70,24 +70,22 @@
             <thead>
                 <tr>
                     <th style="text-align: center;" width="60">编号</th>
-                    <th style="text-align: center;" width="100">分类</th>
                     <th style="text-align: center;" width="100">模块</th>
                     <th style="text-align: center;" width="100">项目</th>
                     <th style="text-align: center;" width="100">学分</th>
-                    <th style="text-align: center;" width="100">类别</th>
                     <th style="text-align: center;" width="100">简介</th>
+                    <th style="text-align: center;" width="100">操作</th>
                 </tr>
             </thead>
             <tbody>
             <volist id="vo" name="list">
                 <tr target="sid_node" rel="{$vo['id']}">
                     <td style="text-align: center;">{$vo['id']}</td>
-                    <td style="text-align: center;" >{$vo['Course_type']|getModuleType}</td>
                     <td style="text-align: center;" >{$vo['Module_name']}</td>
                     <td style="text-align: center;" >{$vo['Course_name']}</td>
                     <td style="text-align: center;" >{$vo['Course_credit']}</td>
-                    <td style="text-align: center;" >{$vo['Course_category']|getCategory}</td>
                     <td style="text-align: center;" >{$vo['Course_remark']}</td>
+                    <td style="text-align: center;" ><a class="add" href="?s=Home/MainOption/add" target="dialog" mask="true" width="700" height="400"><span>设置</span></a></td>
                 </tr>
             </volist>
 
