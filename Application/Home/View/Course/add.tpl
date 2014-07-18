@@ -36,10 +36,6 @@
                     <label>简介：</label>
                     <textarea name="Course_remark" class="required" id="Course_remark" cols="70" rows="10"></textarea>
                 </div>
-                <div class="unit">
-                	<label>时间</label>
-                	<input type="text" name="testtime" id="testtime" class="date" datefmt="yyyy" >
-                </div>
             </div>
 			<input type="hidden" value="" name="Update_date" id="Update_date"/>
             <div class="formBar">

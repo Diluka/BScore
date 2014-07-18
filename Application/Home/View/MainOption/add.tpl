@@ -58,9 +58,23 @@
                 </tr>
                 </thead>
                 <tbody>
+                <tr>
+                <td><input name="Attach_title"></td>
+                <td><select name="type"></select></td>
+                </tr>
                 </tbody>
+                <tfoot>
+                <tr>
+                <td colspan="2"><button type="button" onclick="">添加文档</button></td>
+                </tr>
+                </tfoot>
                 </table>
                 </div>
+                <div class="unit">
+                	<label>时间</label>
+                	<input type="text" name="testtime" id="testtime" class="date" datefmt="yyyy" >
+                </div>
+                <a href="javascript:void(0)" id="test">测试</a>
         </form>
 
     </div>
@@ -71,5 +85,6 @@
 			$(".blk").toggle();
 			$(".hidden").toggle();
 		});
+		
 	})
 </script>
