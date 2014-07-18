@@ -8,13 +8,15 @@
         	<legend>主选项</legend>
              <div class="unit">
         			<label>选项标题：</label>
-					<input type="text" name="MainOption_name" class="readonly" readonly>
+					<input type="text" name="MainOption_name" class="readonly textInput" readonly>
 					<label>开始时间：</label>
-					<input type="text" name="Update_date" class="readonly" readonly>
+					<input type="text" name="Update_date" class="readonly textInput" readonly>
+                    </div>
+                    <div class="unit">
 					<label>禁用时间：</label>
-					<input type="text" name="Disable_date" class="readonly" readonly>
+					<input type="text" name="Disable_date" class="readonly textInput" readonly>
         			<label>文档数：</label>
-        			<input type="text" name="Number" class="readonly" readonly>
+        			<input type="text" name="Number" class="readonly textInput" readonly>
         	</div>
 </fieldset>
         	<fieldset>

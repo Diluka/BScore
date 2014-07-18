@@ -19,6 +19,24 @@ function toDate($time, $format = 'Y-m-d H:i:s') {
     return date($format, $time);
 }
 
+function getAttachType($type){
+	switch ($type) {
+		case 1 :
+			$showText = '文本框';
+			break;
+		case 2 :
+			$showText = '文本域';
+			break;
+		case 3 :
+			$showText = '文件';
+			break;
+		case 4 :
+			$showText = '时间';
+			break;
+	}
+	return $showText;
+}
+
 function getStatus($status, $imageShow = true) {
     switch ($status) {
         case 0 :

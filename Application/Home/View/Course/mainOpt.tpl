@@ -13,7 +13,7 @@
                     </tr>
                  </thead>
                  <tbody class="mainOpt" style="text-align:center">
-                 <tr><td><input type="text" name="MainOption_name" class="required" style="width:99%;"></td><td><input type="text" name="Update_date" class="date readonly required" readonly datefmt="yyyy" style="width:99%;"></td><td><input type="text" name="Display_date" class="date readonly" readonly datefmt="yyyy" style="width:99%;"></td><td><input type="text" name="Number" class="required" style="width:99%;"></td><td style="text-align:center"><a href="javascript:" style="color:lightgray"><span>删除</span></a></td></tr>
+                 <tr><td><input type="text" name="MainOption_name" class="required textInput" style="width:99%;"></td><td><input type="text" name="Update_date" class="date readonly required textInput" readonly datefmt="yyyy" style="width:99%;"></td><td><input type="text" name="Display_date" class="date readonly textInput" readonly datefmt="yyyy" style="width:99%;"></td><td><input type="text" name="Number" class="required textInput" style="width:99%;"></td><td style="text-align:center"><a href="javascript:" style="color:lightgray"><span>删除</span></a></td></tr>
                  </tbody>
                  <tfoot>
                  <tr><td colspan="5"><button type="button" onclick="mainOpt_add()">添加主选项</button></td></tr>

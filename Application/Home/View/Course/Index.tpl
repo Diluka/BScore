@@ -86,9 +86,9 @@
                     <td style="text-align: center;" >{$vo['Course_credit']}</td>
                     <td style="text-align: center;" >{$vo['Course_remark']}</td>
                     <td style="text-align: center;" >
-	                    <a class="add" href="__URL__/mainOpt" target="dialog" mask="true" width="900" height="400"><span>主选项</span></a>&nbsp;|&nbsp;
-	                    <a class="add" href="__URL__/childOpt" target="dialog" mask="true" width="600" height="400"><span>子选项</span></a>&nbsp;|&nbsp;
-	                    <a class="add" href="__URL__/rule" target="dialog" mask="true" width="700" height="400"><span>定义规则</span></a>
+	                    <a class="add" href="__URL__/mainOpt" target="dialog" mask="true" width="700" height="500"><span>主选项</span></a>&nbsp;|&nbsp;
+	                    <a class="add" href="__URL__/childOpt" target="dialog" mask="true" width="700" height="500"><span>子选项</span></a>&nbsp;|&nbsp;
+	                    <a class="add" href="__URL__/rule" target="dialog" mask="true" width="700" height="500"><span>定义规则</span></a>
                     </td>
                 </tr>
             </volist>
