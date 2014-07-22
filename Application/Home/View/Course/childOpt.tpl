@@ -29,7 +29,6 @@
                         </thead>
                         <tbody class="childOpt" style="text-align:center">
                             <tr><td><input type="text" name="childOption_name[]" class="required" style="width:99%;" title="标题"></td><td><input type="text" name="Update_date[]" class="date readonly required" readonly datefmt="yyyy" style="width:99%;"></td><td><input type="text" name="Display_date[]" class="date readonly" readonly datefmt="yyyy" style="width:99%;"></td><td style="text-align:center"><a href="javascript:" style="color:lightgray"><span>删除</span></a></td></tr>
-                            <tr><td><input type="text" name="childOption_name[]" class="required" style="width:99%;" title="标题"></td><td><input type="text" name="Update_date[]" class="date readonly required" readonly datefmt="yyyy" style="width:99%;"></td><td><input type="text" name="Display_date[]" class="date readonly" readonly datefmt="yyyy" style="width:99%;"></td><td style="text-align:center"><a href="javascript:" style="color:lightgray"><span>删除</span></a></td></tr>
 
                         </tbody>
                         <tfoot>

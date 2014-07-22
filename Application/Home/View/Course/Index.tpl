@@ -17,7 +17,7 @@
                 <ul class="searchContent">
                     <li>
                         <label>分类：</label>
-                        <select name="Course_type">
+                        <select name="Course_type" onchange="getModuleByType(this.value);">
                             <option value="">全部</option>
                             <option value="1">{:getModuleType(1)}</option>
                             <option value="2">{:getModuleType(2)}</option>
@@ -25,19 +25,11 @@
                     </li>
                     <li>
                         <label>模块：</label>
-                        <select name="Module_id">
+                        <select name="Module_id" id="Module_id_ci">
                             <option value="">全部</option>
                             <volist name="module" id="m">
                                 <option value='{$m["id"]}'>{$m['Module_name']}</option>
                             </volist>
-                        </select>
-                    </li>
-                    <li>
-                        <label>评分类别：</label>
-                        <select name='Course_category'>
-                            <option value="">全部</option>
-                            <option value="1">{:getCategory(1)}</option>
-                            <option value="2">{:getCategory(2)}</option>
                         </select>
                     </li>
                 </ul>
@@ -86,9 +78,9 @@
                     <td style="text-align: center;" >{$vo['Course_credit']}</td>
                     <td style="text-align: center;" >{$vo['Course_remark']}</td>
                     <td style="text-align: center;" >
-	                    <a class="add" href="__URL__/mainOpt" target="dialog" mask="true" width="700" height="500"><span>主选项</span></a>&nbsp;|&nbsp;
-	                    <a class="add" href="__URL__/childOpt" target="dialog" mask="true" width="700" height="500"><span>子选项</span></a>&nbsp;|&nbsp;
-	                    <a class="add" href="__URL__/rule" target="dialog" mask="true" width="700" height="500"><span>定义规则</span></a>
+                        <a class="add" href="__URL__/mainOpt" target="dialog" mask="true" width="700" height="500"><span>主选项</span></a>&nbsp;|&nbsp;
+                        <a class="add" href="__URL__/childOpt" target="dialog" mask="true" width="700" height="500"><span>子选项</span></a>&nbsp;|&nbsp;
+                        <a class="add" href="__URL__/rule" target="dialog" mask="true" width="700" height="500"><span>定义规则</span></a>
                     </td>
                 </tr>
             </volist>
@@ -113,3 +105,22 @@
         </div>
     </div>
 </div>
+<script>
+    function getModuleByType(type) {
+        $.getJSON("?s=home/Module/getByType",
+                {
+                    type: type,
+                    _: Math.random()
+                },
+        function(data) {
+            if (data.success) {
+                var $m = $("#Module_id_ci");
+                $m.html('<option value="">全部</option>');
+                for (var i = 0; i < data.list.length; i++) {
+                    var m = data.list[i];
+                    $m.append('<option value="' + m.id + '">' + m.Module_name + '</option>');
+                }
+            }
+        });
+    }
+</script>

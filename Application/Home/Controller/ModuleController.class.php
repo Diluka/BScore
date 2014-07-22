@@ -23,6 +23,18 @@ class ModuleController extends BaseController {
         parent::index($map);
     }
 
+    public function getByType($type) {
+        if ($type) {
+            $module = M('Module')->where(array("Module_type" => $type))->select();
+        } else {
+            $module = M('Module')->select();
+        }
+        $data["success"] = isset($module);
+        $data["list"] = $module;
+
+        $this->ajaxReturn($data, "json");
+    }
+
     public function export() {
 
         //标题  中文标题  字段名
