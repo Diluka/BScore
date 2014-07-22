@@ -93,3 +93,31 @@ function loadGrade(obj, sid, callback, flag) {
             }
     );
 }
+
+function validator(form) {
+    var $form = $(form);
+    $form.find("input.required").each(function() {
+        var $input = $(this);
+        $input.unbind("onblur").blur(function() {
+            if ($(this).val() === undefined || $(this).val() === "") {
+                $(this).addClass("error");
+            } else {
+                $(this).removeClass("error");
+            }
+        });
+        $form.submit(function(e) {
+            var errors = 0;
+            var $form = $(this);
+            $form.find("input.required").each(function() {
+                $(this).blur();
+                if ($(this).val() === undefined || $(this).val() === "") {
+                    errors++;
+                }
+            });
+            if (errors) {
+                var message = DWZ.msg("validateFormError", [errors]);
+                alertMsg.error(message);
+            }
+        });
+    });
+}
