@@ -122,9 +122,55 @@ function validator(form) {
     });
 }
 
+function rebindForm(form) {
+    var $form = $(form);
 
-function loadModule(obj,cid, callback, flag){
-	if (!cid) {
+    $form.find("input.required").each(function() {
+        var $input = $(this);
+        $input.unbind("onblur").blur(function() {
+            if ($(this).val() === undefined || $(this).val() === "") {
+                $(this).addClass("error");
+            } else {
+                $(this).removeClass("error");
+            }
+        });
+
+        $form.find("input.date").each(function() {
+            var $this = $(this);
+            var opts = {};
+            if ($this.attr("dateFmt"))
+                opts.pattern = $this.attr("dateFmt");
+            if ($this.attr("minDate"))
+                opts.minDate = $this.attr("minDate");
+            if ($this.attr("maxDate"))
+                opts.maxDate = $this.attr("maxDate");
+            if ($this.attr("mmStep"))
+                opts.mmStep = $this.attr("mmStep");
+            if ($this.attr("ssStep"))
+                opts.ssStep = $this.attr("ssStep");
+            $this.datepicker(opts);
+        });
+
+        $form.submit(function(e) {
+            var errors = 0;
+            var $form = $(this);
+            $form.find("input.required").each(function() {
+                $(this).blur();
+                if ($(this).val() === undefined || $(this).val() === "") {
+                    errors++;
+                }
+            });
+            if (errors) {
+                var message = DWZ.msg("validateFormError", [errors]);
+                alertMsg.error(message);
+            }
+        });
+    });
+}
+
+
+function loadModule(obj, cid, callback, flag) {
+    if (!cid) {
         if (flag) {
             $(obj).html('<option value="">全部</option>');
         } else {
@@ -136,27 +182,27 @@ function loadModule(obj,cid, callback, flag){
 
         return;
     }
-	 $.getJSON(
-	            "?s=Home/Module/getByType",
-	            {"type":cid,"time":new Date()},
-	            function(data) {
-	                if (flag) {
-	                    $(obj).html('<option value="">全部</option>');
-	                } else {
-	                    $(obj).empty();
-	                }
-	                if (data.success) {
-	                    for (var i = 0; i < data.list.length; i++) {
-	                        var mod = data.list[i];
-	                        $(obj).append('<option value="' + mod.id + '">' + mod.Module_name + '</option>');
-	                    }
-	                    if (typeof (callback) === "function") {
-	                        callback();
-	                    }
-	                }
-	                else if (!flag) {
-	                    $(obj).html('<option value="">暂无</option>');
-	                }
-	            }
-	    );
+    $.getJSON(
+            "?s=Home/Module/getByType",
+            {"type": cid, "time": new Date()},
+    function(data) {
+        if (flag) {
+            $(obj).html('<option value="">全部</option>');
+        } else {
+            $(obj).empty();
+        }
+        if (data.success) {
+            for (var i = 0; i < data.list.length; i++) {
+                var mod = data.list[i];
+                $(obj).append('<option value="' + mod.id + '">' + mod.Module_name + '</option>');
+            }
+            if (typeof (callback) === "function") {
+                callback();
+            }
+        }
+        else if (!flag) {
+            $(obj).html('<option value="">暂无</option>');
+        }
+    }
+    );
 }
