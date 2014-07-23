@@ -1,9 +1,9 @@
 <div class="page">
     <div class="pageContent">
 
-        <form method="post" action="__URL__/insert/navTabId/Course" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <form method="post" action="?s=home/MainOption/insert" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
             <div class="pageFormContent" layoutH="58">
-
+				<input type="hidden" name="Course_id" value="1">
                 <fieldset>
                     <legend>主选项</legend>
                     <table class="list" style="width:100%;margin:0 auto">
@@ -13,16 +13,20 @@
                             </tr>
                         </thead>
                         <tbody class="mainOpt" style="text-align:center">
-                            <tr>
+                        <!--
+                            <volist>
+                            	<tr>
                                 <td>
-                                    <input type="hidden" name="id[]" value="">
+                                    <input type="hidden" name="id[]" value=""><input type="hidden" name="sn[]" value="">
                                     <input type="text" name="MainOption_name[]" class="required textInput" style="width:99%;">
                                 </td>
                                 <td><input type="text" name="Update_date[]" class="date readonly required textInput" readonly datefmt="yyyy" style="width:99%;"></td>
                                 <td><input type="text" name="Disable_date[]" class="date readonly textInput" readonly datefmt="yyyy" style="width:99%;"></td>
-                                <td><input type="text" name="sn[]" class="required textInput" style="width:99%;"></td>
+                                <td><input type="text" name="Score_number[]" class="required textInput" style="width:99%;"></td>
                                 <td style="text-align:center"><a href="javascript:" style="color:lightgray"><span>删除</span></a></td>
                             </tr>
+                            </volist>
+                            -->
                         </tbody>
                         <tfoot>
                             <tr><td colspan="5"><button type="button" onclick="mainOpt_add()">添加主选项</button></td></tr>
@@ -45,8 +49,7 @@
         pattern: "yyyy"
     };
     function mainOpt_add() {
-        var $t = $('<tr><td><input type="text" name="MainOption_name" class="required" style="width:99%;"></td><td><input type="text" name="Update_date" class="date readonly required" readonly datefmt="yyyy" style="width:99%;"></td><td><input type="text" name="Display_date" class="date readonly" readonly datefmt="yyyy" style="width:99%;"></td><td><input type="text" name="Number" class="required" style="width:99%;"></td><td style="text-align:center"><a href="javascript:" onclick="$(this).parent().parent().remove()"><span>删除</span></a></td></tr>');
-
+        var $t = $('<tr><td><input type="text" name="MainOption_name[]" class="required textInput" style="width:99%;"></td><td><input type="text" name="Update_date[]" class="date readonly required textInput" readonly datefmt="yyyy" style="width:99%;"></td><td><input type="text" name="Disable_date[]" class="date readonly textInput" readonly datefmt="yyyy" style="width:99%;"></td><td><input type="text" name="Score_number[]" class="required textInput" style="width:99%;"></td><td style="text-align:center"><a href="javascript:" style="color:lightgray"><span>删除</span></a></td></tr>');
         $t.find("input.date").each(function() {
             $(this).datepicker(opts);
         });

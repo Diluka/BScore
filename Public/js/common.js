@@ -121,3 +121,42 @@ function validator(form) {
         });
     });
 }
+
+
+function loadModule(obj,cid, callback, flag){
+	if (!cid) {
+        if (flag) {
+            $(obj).html('<option value="">全部</option>');
+        } else {
+            $(obj).empty();
+        }
+        if (typeof (callback) === "function") {
+            callback();
+        }
+
+        return;
+    }
+	 $.getJSON(
+	            "?s=Home/Module/getByType",
+	            {"type":cid,"time":new Date()},
+	            function(data) {
+	                if (flag) {
+	                    $(obj).html('<option value="">全部</option>');
+	                } else {
+	                    $(obj).empty();
+	                }
+	                if (data.success) {
+	                    for (var i = 0; i < data.list.length; i++) {
+	                        var mod = data.list[i];
+	                        $(obj).append('<option value="' + mod.id + '">' + mod.Module_name + '</option>');
+	                    }
+	                    if (typeof (callback) === "function") {
+	                        callback();
+	                    }
+	                }
+	                else if (!flag) {
+	                    $(obj).html('<option value="">暂无</option>');
+	                }
+	            }
+	    );
+}

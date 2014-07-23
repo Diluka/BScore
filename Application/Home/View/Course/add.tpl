@@ -1,9 +1,3 @@
-<script>
-    function setType(obj) {
-        var mtype = $(obj).find(":selected").attr("mtype");
-        $('#Course_type').toArray()[0].selectedIndex = mtype - 1;
-    }
-</script>
 <div class="page">
     <div class="pageContent">
 
@@ -50,12 +44,11 @@
 </div>
 <script>
     $("#Course_type").change(function() {
-        this.selectedIndex = $("#Module_id :selected").attr("mtype") - 1;
+        loadModule($("#Module_id"),$("#Course_type").val());
     });
     $("form").submit(function(){
     	var time = new Date();
     	var	val = time.getFullYear()+"-"+(time.getMonth()+1)+"-"+time.getDate();
     	$("#Update_data").val(val);
-    	alert($("#testtime").val());
     });
 </script>
