@@ -3,7 +3,7 @@
 
         <form method="post" action="?s=home/MainOption/insert" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)" id="MainOpt_form">
             <div class="pageFormContent" layoutH="58">
-                <input type="hidden" name="Course_id" value="1">
+                <input type="hidden" name="Course_id" value="{$_REQUEST.id}">
                 <fieldset>
                     <legend>主选项</legend>
                     <table class="list" style="width:100%;margin:0 auto">
@@ -13,20 +13,18 @@
                             </tr>
                         </thead>
                         <tbody class="mainOpt" style="text-align:center">
-                            <!--
-                                <volist>
-                                    <tr>
-                                    <td>
-                                        <input type="hidden" name="id[]" value=""><input type="hidden" name="sn[]" value="">
-                                        <input type="text" name="MainOption_name[]" class="required textInput" style="width:99%;">
-                                    </td>
-                                    <td><input type="text" name="Update_date[]" class="date readonly required textInput" readonly datefmt="yyyy" style="width:99%;"></td>
-                                    <td><input type="text" name="Disable_date[]" class="date readonly textInput" readonly datefmt="yyyy" style="width:99%;"></td>
-                                    <td><input type="text" name="Score_number[]" class="required textInput" style="width:99%;"></td>
-                                    <td style="text-align:center"><a href="javascript:" style="color:lightgray"><span>删除</span></a></td>
-                                </tr>
-                                </volist>
-                            -->
+                        <volist name="mainOptions" id="opt">
+                            <tr>
+                                <td>
+                                    <input type="hidden" name="id[]" value="{$opt.id}"><input type="hidden" name="sn[]" value="{$opt.sn}">
+                                    <input type="text" name="MainOption_name[]" class="required textInput" style="width:98%;" value="{$opt.MainOption_name}">
+                                </td>
+                                <td><input type="text" name="Update_date[]" value="{$opt.Update_date}" class="date readonly required textInput" readonly datefmt="yyyy" style="width:98%;"></td>
+                                <td><input type="text" name="Disable_date[]" value="{$opt.Disable_date}" class="date readonly textInput" readonly datefmt="yyyy" style="width:98%;"></td>
+                                <td><input type="text" name="Score_number[]" value="{$opt.Score_number}" class="required textInput" style="width:98%;"></td>
+                                <td style="text-align:center"><a href="javascript:" style="color:lightgray"><span>删除</span></a></td>
+                            </tr>
+                        </volist>
                         </tbody>
                         <tfoot>
                             <tr><td colspan="5"><button type="button" onclick="mainOpt_add()">添加主选项</button></td></tr>
@@ -45,13 +43,12 @@
     </div>
 </div>
 <script>
-
     validator("#MainOpt_form");
     function mainOpt_add() {
         var opts = {
             pattern: "yyyy"
         };
-        var $t = $('<tr><td><input type="text" name="MainOption_name[]" class="required textInput" style="width:99%;"></td><td><input type="text" name="Update_date[]" class="date readonly required textInput" readonly datefmt="yyyy" style="width:99%;"></td><td><input type="text" name="Disable_date[]" class="date readonly textInput" readonly datefmt="yyyy" style="width:99%;"></td><td><input type="text" name="Score_number[]" class="required textInput" style="width:99%;"></td><td style="text-align:center"><a href="javascript:" onclick="$(this).parent().parent().remove();"><span>删除</span></a></td></tr>');
+        var $t = $('<tr><td><input type="text" name="MainOption_name[]" class="required textInput" style="width:98%;"></td><td><input type="text" name="Update_date[]" class="date readonly required textInput" readonly datefmt="yyyy" style="width:98%;"></td><td><input type="text" name="Disable_date[]" class="date readonly textInput" readonly datefmt="yyyy" style="width:98%;"></td><td><input type="text" name="Score_number[]" class="required textInput" style="width:98%;"></td><td style="text-align:center"><a href="javascript:" onclick="$(this).parent().parent().remove();"><span>删除</span></a></td></tr>');
 
         $t.find("input.date").each(function() {
             $(this).datepicker(opts);

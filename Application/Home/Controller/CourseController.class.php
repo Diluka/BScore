@@ -30,7 +30,12 @@ class CourseController extends BaseController {
     }
 
     public function mainOpt() {
-        $mainOpt = M("MainOption")->where(array("Course_id" => $_REQUEST['id']))->select();
+        $this->assign("mainOptions", M("MainOption")->where(array("Course_id" => $_REQUEST['id']))->select());
+        $this->display();
+    }
+
+    public function childOpt() {
+        $this->assign("mainOptions", M("MainOption")->where(array("Course_id" => $_REQUEST['id']))->select());
         $this->display();
     }
 

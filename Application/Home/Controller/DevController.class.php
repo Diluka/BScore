@@ -24,4 +24,9 @@ class DevController extends BaseController {
         $this->display();
     }
 
+    public function semester() {
+        $this->assign("semesters", M('semester')->select());
+        $this->display();
+    }
+
 }

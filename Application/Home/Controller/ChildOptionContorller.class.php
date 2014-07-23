@@ -18,7 +18,6 @@ class ChildOptionController extends BaseController {
 
     public function insert($MainOption_sn, $id = NULL, $ChildOption_name = NULL, $Score_number = NULL, $Update_date = NULL, $Disable_date = NULL, $sn = NULL) {
         $childOption = M('ChildOption');
-        $result = 0;
         if ($id) { //修改并添加
             for ($i = 0; $i < count($id); $i++) { //修改部分
                 $data = array();
@@ -31,7 +30,7 @@ class ChildOptionController extends BaseController {
                 }
                 $data["sn"] = $sn[$i];
 
-                $result += $childOption->add($data);
+                $result &= $childOption->add($data);
             }
             for ($i = count($id); $i < count($ChildOption_name); $i++) { //添加部分
                 $data = array();
@@ -44,7 +43,7 @@ class ChildOptionController extends BaseController {
                 }
                 $data["sn"] = $childOption->max("sn") + 1;
 
-                $result += $childOption->add($data);
+                $result &= $childOption->add($data);
             }
         } else { //添加
             for ($i = 0; $i < count($ChildOption_name); $i++) {
@@ -58,11 +57,11 @@ class ChildOptionController extends BaseController {
                 }
                 $data["sn"] = $childOption->max("sn") + 1;
 
-                $result += $childOption->add($data);
+                $result &= $childOption->add($data);
             }
         }
 
-        if ($result) { //保存成功
+        if ($result !== FALSE) { //保存成功
             $this->success('保存成功!', cookie('_currentUrl_'));
         } else {
             //失败提示
